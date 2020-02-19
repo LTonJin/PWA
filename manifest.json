@@ -1,0 +1,16 @@
+{
+  "name": "News",
+  "short_name": "News",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "/144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
+}

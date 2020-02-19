@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="manifest" href="/manifest.json">
+</head>
+
+<body>
+  <h1>PWA</h1>
+  <p id="text"></p>
+  <button id="butInstall" style="display: none;">butInstall</button>
+  <script src="/install.js"></script>
+  <script>
+    if ('serviceWorker' in window.navigator) {
+      navigator.serviceWorker.register('/serverWorker.js')
+        .then(function (reg) {
+          console.log('success', reg);
+        })
+        .catch(function (err) {
+          console.log('fail', err);
+        });
+    }
+    fetch('https://www.tianqiapi.com/api?version=epidemic&appid=23035354&appsecret=8YvlPNrz')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        console.log(myJson);
+        document.querySelector('#text').innerHTML = myJson.errmsg;
+      })
+  </script>
+</body>
+
+</html>
